@@ -32,6 +32,7 @@ func main() {
 	log.Println("Cargando configuración...")
 	cfg := config.LoadConfig()
 
+	
 	// Configurar modo de Gin
 	gin.SetMode(cfg.Server.Mode)
 	log.Printf("Modo Gin establecido a: %s", cfg.Server.Mode)

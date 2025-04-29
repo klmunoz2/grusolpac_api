@@ -1,0 +1,1391 @@
+{
+  "id": "0",
+  "name": "Diagrama API Grusolpac",
+  "createdAt": "2025-04-29T20:10:29.504Z",
+  "updatedAt": "2025-04-29T20:10:29.504Z",
+  "databaseType": "postgresql",
+  "tables": [
+    {
+      "id": "1",
+      "name": "course_evaluations",
+      "schema": "public",
+      "x": 1500,
+      "y": 533.0127018922194,
+      "fields": [
+        {
+          "id": "2",
+          "name": "id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": true,
+          "unique": true,
+          "nullable": false,
+          "default": "nextval('course_evaluations_id_seq'::regclass)",
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "3",
+          "name": "course_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": true,
+          "nullable": false,
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "4",
+          "name": "number_of_questions",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "5",
+          "name": "passing_score",
+          "type": {
+            "id": "numeric",
+            "name": "numeric"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "precision": 5,
+          "scale": 2,
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "6",
+          "name": "created_at",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "7",
+          "name": "updated_at",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203324
+        }
+      ],
+      "indexes": [
+        {
+          "id": "8",
+          "name": "course_evaluations_course_id_key",
+          "unique": true,
+          "fieldIds": [
+            "3"
+          ],
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "9",
+          "name": "course_evaluations_pkey",
+          "unique": true,
+          "fieldIds": [
+            "2"
+          ],
+          "createdAt": 1745880203324
+        }
+      ],
+      "color": "#ffe374",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1745880203324,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "10",
+      "name": "courses",
+      "schema": "public",
+      "x": 100,
+      "y": 100,
+      "fields": [
+        {
+          "id": "11",
+          "name": "id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": true,
+          "unique": true,
+          "nullable": false,
+          "default": "nextval('courses_id_seq'::regclass)",
+          "createdAt": 1745880203322
+        },
+        {
+          "id": "12",
+          "name": "name",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "characterMaximumLength": "255",
+          "createdAt": 1745880203322
+        },
+        {
+          "id": "13",
+          "name": "description",
+          "type": {
+            "id": "text",
+            "name": "text"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1745880203322
+        },
+        {
+          "id": "14",
+          "name": "total_hours",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "createdAt": 1745880203322
+        },
+        {
+          "id": "15",
+          "name": "has_final_evaluation",
+          "type": {
+            "id": "boolean",
+            "name": "boolean"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "default": "true",
+          "createdAt": 1745880203322
+        },
+        {
+          "id": "16",
+          "name": "created_at",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203322
+        },
+        {
+          "id": "17",
+          "name": "updated_at",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203322
+        }
+      ],
+      "indexes": [
+        {
+          "id": "18",
+          "name": "courses_pkey",
+          "unique": true,
+          "fieldIds": [
+            "11"
+          ],
+          "createdAt": 1745880203322
+        }
+      ],
+      "color": "#ff9f74",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1745880203322,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "19",
+      "name": "evaluation_questions",
+      "schema": "public",
+      "x": 1100,
+      "y": 533.0127018922194,
+      "fields": [
+        {
+          "id": "20",
+          "name": "evaluation_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": true,
+          "unique": false,
+          "nullable": false,
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "21",
+          "name": "question_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": true,
+          "unique": false,
+          "nullable": false,
+          "createdAt": 1745880203324
+        }
+      ],
+      "indexes": [
+        {
+          "id": "22",
+          "name": "evaluation_questions_pkey",
+          "unique": true,
+          "fieldIds": [
+            "20",
+            "21"
+          ],
+          "createdAt": 1745880203324
+        }
+      ],
+      "color": "#c05dcf",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1745880203324,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "23",
+      "name": "answers",
+      "schema": "public",
+      "x": 1700,
+      "y": 100,
+      "fields": [
+        {
+          "id": "24",
+          "name": "id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": true,
+          "unique": true,
+          "nullable": false,
+          "default": "nextval('answers_id_seq'::regclass)",
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "25",
+          "name": "question_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "26",
+          "name": "answer_text",
+          "type": {
+            "id": "text",
+            "name": "text"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "27",
+          "name": "is_correct",
+          "type": {
+            "id": "boolean",
+            "name": "boolean"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "default": "false",
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "28",
+          "name": "created_at",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "29",
+          "name": "updated_at",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203324
+        }
+      ],
+      "indexes": [
+        {
+          "id": "30",
+          "name": "idx_answers_question_id",
+          "unique": false,
+          "fieldIds": [
+            "25"
+          ],
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "31",
+          "name": "answers_pkey",
+          "unique": true,
+          "fieldIds": [
+            "24"
+          ],
+          "createdAt": 1745880203324
+        }
+      ],
+      "color": "#4dee8a",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1745880203324,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "32",
+      "name": "questions",
+      "schema": "public",
+      "x": 1300,
+      "y": 100,
+      "fields": [
+        {
+          "id": "33",
+          "name": "id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": true,
+          "unique": true,
+          "nullable": false,
+          "default": "nextval('questions_id_seq'::regclass)",
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "34",
+          "name": "topic_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "35",
+          "name": "question_text",
+          "type": {
+            "id": "text",
+            "name": "text"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "36",
+          "name": "created_at",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "37",
+          "name": "updated_at",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203323
+        }
+      ],
+      "indexes": [
+        {
+          "id": "38",
+          "name": "idx_questions_topic_id",
+          "unique": false,
+          "fieldIds": [
+            "34"
+          ],
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "39",
+          "name": "questions_pkey",
+          "unique": true,
+          "fieldIds": [
+            "33"
+          ],
+          "createdAt": 1745880203323
+        }
+      ],
+      "color": "#4dee8a",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1745880203323,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "40",
+      "name": "students",
+      "schema": "public",
+      "x": 300.0000000000001,
+      "y": 533.0127018922194,
+      "fields": [
+        {
+          "id": "41",
+          "name": "id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": true,
+          "unique": true,
+          "nullable": false,
+          "default": "nextval('students_id_seq'::regclass)",
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "42",
+          "name": "first_name",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "characterMaximumLength": "100",
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "43",
+          "name": "last_name",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "characterMaximumLength": "100",
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "44",
+          "name": "email",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": true,
+          "nullable": false,
+          "characterMaximumLength": "255",
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "45",
+          "name": "created_at",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "46",
+          "name": "updated_at",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203324
+        }
+      ],
+      "indexes": [
+        {
+          "id": "47",
+          "name": "students_email_key",
+          "unique": true,
+          "fieldIds": [
+            "44"
+          ],
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "48",
+          "name": "students_pkey",
+          "unique": true,
+          "fieldIds": [
+            "41"
+          ],
+          "createdAt": 1745880203324
+        }
+      ],
+      "color": "#8eb7ff",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1745880203324,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "49",
+      "name": "topics",
+      "schema": "public",
+      "x": 900,
+      "y": 100,
+      "fields": [
+        {
+          "id": "50",
+          "name": "id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": true,
+          "unique": true,
+          "nullable": false,
+          "default": "nextval('topics_id_seq'::regclass)",
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "51",
+          "name": "module_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "52",
+          "name": "name",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "characterMaximumLength": "255",
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "53",
+          "name": "content",
+          "type": {
+            "id": "text",
+            "name": "text"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "54",
+          "name": "order_index",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "default": "0",
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "55",
+          "name": "created_at",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "56",
+          "name": "updated_at",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203323
+        }
+      ],
+      "indexes": [
+        {
+          "id": "57",
+          "name": "topics_module_id_name_key",
+          "unique": true,
+          "fieldIds": [
+            "51",
+            "52"
+          ],
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "58",
+          "name": "topics_pkey",
+          "unique": true,
+          "fieldIds": [
+            "50"
+          ],
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "59",
+          "name": "topics_module_id_order_index_key",
+          "unique": true,
+          "fieldIds": [
+            "51",
+            "54"
+          ],
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "60",
+          "name": "idx_topics_module_id",
+          "unique": false,
+          "fieldIds": [
+            "51"
+          ],
+          "createdAt": 1745880203323
+        }
+      ],
+      "color": "#ffe374",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1745880203323,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "61",
+      "name": "enrollments",
+      "schema": "public",
+      "x": -251.70121168923725,
+      "y": 165.0936712436093,
+      "fields": [
+        {
+          "id": "62",
+          "name": "id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": true,
+          "unique": true,
+          "nullable": false,
+          "default": "nextval('enrollments_id_seq'::regclass)",
+          "createdAt": 1745880203325
+        },
+        {
+          "id": "63",
+          "name": "student_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "createdAt": 1745880203325
+        },
+        {
+          "id": "64",
+          "name": "course_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "createdAt": 1745880203325
+        },
+        {
+          "id": "65",
+          "name": "enrollment_date",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203325
+        },
+        {
+          "id": "66",
+          "name": "theoretical_status",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "characterMaximumLength": "50",
+          "default": "'pending'::character varying",
+          "createdAt": 1745880203325
+        },
+        {
+          "id": "67",
+          "name": "evaluation_score",
+          "type": {
+            "id": "numeric",
+            "name": "numeric"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "precision": 5,
+          "scale": 2,
+          "createdAt": 1745880203325
+        },
+        {
+          "id": "68",
+          "name": "evaluation_date",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1745880203325
+        },
+        {
+          "id": "69",
+          "name": "practical_status",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "characterMaximumLength": "50",
+          "default": "'pending'::character varying",
+          "createdAt": 1745880203325
+        },
+        {
+          "id": "70",
+          "name": "practical_completion_date",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1745880203325
+        },
+        {
+          "id": "71",
+          "name": "created_at",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203325
+        },
+        {
+          "id": "72",
+          "name": "updated_at",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203325
+        },
+        {
+          "id": "73",
+          "name": "certificate_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1745880203325
+        }
+      ],
+      "indexes": [
+        {
+          "id": "74",
+          "name": "idx_enrollments_course_id",
+          "unique": false,
+          "fieldIds": [
+            "64"
+          ],
+          "createdAt": 1745880203325
+        },
+        {
+          "id": "75",
+          "name": "enrollments_pkey",
+          "unique": true,
+          "fieldIds": [
+            "62"
+          ],
+          "createdAt": 1745880203325
+        },
+        {
+          "id": "76",
+          "name": "enrollments_student_id_course_id_key",
+          "unique": true,
+          "fieldIds": [
+            "63",
+            "64"
+          ],
+          "createdAt": 1745880203325
+        },
+        {
+          "id": "77",
+          "name": "idx_enrollments_student_id",
+          "unique": false,
+          "fieldIds": [
+            "63"
+          ],
+          "createdAt": 1745880203325
+        }
+      ],
+      "color": "#ff6363",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1745880203325,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "78",
+      "name": "modules",
+      "schema": "public",
+      "x": 500,
+      "y": 100,
+      "fields": [
+        {
+          "id": "79",
+          "name": "id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": true,
+          "unique": true,
+          "nullable": false,
+          "default": "nextval('modules_id_seq'::regclass)",
+          "createdAt": 1745880203322
+        },
+        {
+          "id": "80",
+          "name": "course_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "createdAt": 1745880203322
+        },
+        {
+          "id": "81",
+          "name": "name",
+          "type": {
+            "id": "character_varying",
+            "name": "character varying"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "characterMaximumLength": "255",
+          "createdAt": 1745880203322
+        },
+        {
+          "id": "82",
+          "name": "order_index",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "default": "0",
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "83",
+          "name": "created_at",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "84",
+          "name": "updated_at",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203323
+        }
+      ],
+      "indexes": [
+        {
+          "id": "85",
+          "name": "modules_course_id_order_index_key",
+          "unique": true,
+          "fieldIds": [
+            "80",
+            "82"
+          ],
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "86",
+          "name": "modules_course_id_name_key",
+          "unique": true,
+          "fieldIds": [
+            "80",
+            "81"
+          ],
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "87",
+          "name": "modules_pkey",
+          "unique": true,
+          "fieldIds": [
+            "79"
+          ],
+          "createdAt": 1745880203323
+        },
+        {
+          "id": "88",
+          "name": "idx_modules_course_id",
+          "unique": false,
+          "fieldIds": [
+            "80"
+          ],
+          "createdAt": 1745880203323
+        }
+      ],
+      "color": "#8a61f5",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1745880203323,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "89",
+      "name": "certificates",
+      "schema": "public",
+      "x": -299.99999999999983,
+      "y": 966.0254037844388,
+      "fields": [
+        {
+          "id": "90",
+          "name": "id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": true,
+          "unique": true,
+          "nullable": false,
+          "default": "nextval('certificates_id_seq'::regclass)",
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "91",
+          "name": "enrollment_id",
+          "type": {
+            "id": "integer",
+            "name": "integer"
+          },
+          "primaryKey": false,
+          "unique": true,
+          "nullable": false,
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "92",
+          "name": "issue_date",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "93",
+          "name": "qr_code_url",
+          "type": {
+            "id": "text",
+            "name": "text"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": false,
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "94",
+          "name": "pdf_path",
+          "type": {
+            "id": "text",
+            "name": "text"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "95",
+          "name": "verification_token",
+          "type": {
+            "id": "uuid",
+            "name": "uuid"
+          },
+          "primaryKey": false,
+          "unique": true,
+          "nullable": false,
+          "default": "gen_random_uuid()",
+          "createdAt": 1745880203324
+        },
+        {
+          "id": "96",
+          "name": "created_at",
+          "type": {
+            "id": "timestamp_with_time_zone",
+            "name": "timestamp with time zone"
+          },
+          "primaryKey": false,
+          "unique": false,
+          "nullable": true,
+          "default": "now()",
+          "createdAt": 1745880203324
+        }
+      ],
+      "indexes": [
+        {
+          "id": "97",
+          "name": "certificates_pkey",
+          "unique": true,
+          "fieldIds": [
+            "90"
+          ],
+          "createdAt": 1745880203325
+        },
+        {
+          "id": "98",
+          "name": "idx_certificates_verification_token",
+          "unique": false,
+          "fieldIds": [
+            "95"
+          ],
+          "createdAt": 1745880203325
+        },
+        {
+          "id": "99",
+          "name": "certificates_enrollment_id_key",
+          "unique": true,
+          "fieldIds": [
+            "91"
+          ],
+          "createdAt": 1745880203325
+        },
+        {
+          "id": "100",
+          "name": "idx_certificates_enrollment_id",
+          "unique": false,
+          "fieldIds": [
+            "91"
+          ],
+          "createdAt": 1745880203325
+        },
+        {
+          "id": "101",
+          "name": "certificates_verification_token_key",
+          "unique": true,
+          "fieldIds": [
+            "95"
+          ],
+          "createdAt": 1745880203325
+        }
+      ],
+      "color": "#ff6b8a",
+      "isView": false,
+      "isMaterializedView": false,
+      "createdAt": 1745880203325,
+      "diagramId": "3wthj5fa8qjq"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "102",
+      "name": "answers_question_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "23",
+      "targetTableId": "32",
+      "sourceFieldId": "25",
+      "targetFieldId": "33",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1745880203326,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "103",
+      "name": "certificates_enrollment_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "89",
+      "targetTableId": "61",
+      "sourceFieldId": "91",
+      "targetFieldId": "62",
+      "sourceCardinality": "one",
+      "targetCardinality": "one",
+      "createdAt": 1745880203326,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "104",
+      "name": "course_evaluations_course_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "1",
+      "targetTableId": "10",
+      "sourceFieldId": "3",
+      "targetFieldId": "11",
+      "sourceCardinality": "one",
+      "targetCardinality": "one",
+      "createdAt": 1745880203326,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "105",
+      "name": "enrollments_certificate_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "61",
+      "targetTableId": "89",
+      "sourceFieldId": "73",
+      "targetFieldId": "90",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1745880203326,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "106",
+      "name": "enrollments_course_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "61",
+      "targetTableId": "10",
+      "sourceFieldId": "64",
+      "targetFieldId": "11",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1745880203326,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "107",
+      "name": "enrollments_student_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "61",
+      "targetTableId": "40",
+      "sourceFieldId": "63",
+      "targetFieldId": "41",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1745880203326,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "108",
+      "name": "evaluation_questions_evaluation_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "19",
+      "targetTableId": "1",
+      "sourceFieldId": "20",
+      "targetFieldId": "2",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1745880203326,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "109",
+      "name": "evaluation_questions_question_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "19",
+      "targetTableId": "32",
+      "sourceFieldId": "21",
+      "targetFieldId": "33",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1745880203326,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "110",
+      "name": "modules_course_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "78",
+      "targetTableId": "10",
+      "sourceFieldId": "80",
+      "targetFieldId": "11",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1745880203325,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "111",
+      "name": "questions_topic_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "32",
+      "targetTableId": "49",
+      "sourceFieldId": "34",
+      "targetFieldId": "50",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1745880203325,
+      "diagramId": "3wthj5fa8qjq"
+    },
+    {
+      "id": "112",
+      "name": "topics_module_id_fkey",
+      "sourceSchema": "public",
+      "targetSchema": "public",
+      "sourceTableId": "49",
+      "targetTableId": "78",
+      "sourceFieldId": "51",
+      "targetFieldId": "79",
+      "sourceCardinality": "many",
+      "targetCardinality": "one",
+      "createdAt": 1745880203325,
+      "diagramId": "3wthj5fa8qjq"
+    }
+  ],
+  "dependencies": [],
+  "areas": []
+}

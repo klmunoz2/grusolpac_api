@@ -55,4 +55,5 @@ func InitDB(config *Config) *gorm.DB {
 
 	log.Println("Conexión a la base de datos establecida exitosamente")
 	return db
+	
 }
