@@ -1,0 +1,29 @@
+# Binarios
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.out
+tmp/
+
+
+# Archivos de configuración locales
+.env
+.env.local
+
+# Logs
+*.log
+
+# Directorios
+vendor/
+.vscode/
+.idea/
+
+# Air
+.air.toml
+/tmp
+
+# Archivos temporales
+*.tmp
+*~
