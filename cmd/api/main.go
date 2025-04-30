@@ -8,6 +8,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/klmunoz2/grusolpac_api/internal/config"
+	"github.com/klmunoz2/grusolpac_api/internal/handlers"
 	"github.com/klmunoz2/grusolpac_api/internal/routes"
 )
 
@@ -50,13 +51,16 @@ func main() {
 		log.Fatalf("❌ Database migration failed: %v", err)
 	}
 
+	// Crear Instancias de Handlers
+	userHandler := handlers.NewUserHandler(db)
+
 	// Inicializar el router de Gin
 	log.Println("Inicializando router...")
 	router := gin.Default()
 
 	// Configurar rutas
 	log.Println("Configurando rutas...")
-	routes.SetupRoutes(router)
+	routes.SetupRoutes(router, userHandler)
 
 	// Iniciar el servidor
 	serverAddr := fmt.Sprintf(":%d", cfg.Server.Port)

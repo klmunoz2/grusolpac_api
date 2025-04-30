@@ -4,10 +4,11 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/klmunoz2/grusolpac_api/internal/handlers"
 )
 
 // SetupRoutes configura todas las rutas de la API
-func SetupRoutes(router *gin.Engine) {
+func SetupRoutes(router *gin.Engine, userHandler *handlers.UserHandler) {
 	// Ruta principal
 	router.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
@@ -21,27 +22,14 @@ func SetupRoutes(router *gin.Engine) {
 	// Grupo de rutas API v1
 	v1 := router.Group("/api/v1")
 	{
-		
+
 		userRoutes := v1.Group("/users")
 		{
-			userRoutes.GET("/", func(c *gin.Context) {
-				c.JSON(http.StatusOK, gin.H{"message": "Lista de usuarios"})
-			})
-			userRoutes.GET("/:id", func(c *gin.Context) {
-				id := c.Param("id")
-				c.JSON(http.StatusOK, gin.H{"message": "Detalles del usuario", "id": id})
-			})
-			userRoutes.POST("/", func(c *gin.Context) {
-				c.JSON(http.StatusCreated, gin.H{"message": "Usuario creado"})
-			})
-			userRoutes.PUT("/:id", func(c *gin.Context) {
-				id := c.Param("id")
-				c.JSON(http.StatusOK, gin.H{"message": "Usuario actualizado", "id": id})
-			})
-			userRoutes.DELETE("/:id", func(c *gin.Context) {
-				id := c.Param("id")
-				c.JSON(http.StatusOK, gin.H{"message": "Usuario eliminado", "id": id})
-			})
+			userRoutes.GET("/", userHandler.GetAllUsers)
+			userRoutes.GET("/:id", userHandler.GetUserByID)
+			userRoutes.POST("/", userHandler.CreateUser)
+			userRoutes.PUT("/:id", userHandler.UpdateUser)
+			userRoutes.DELETE("/:id", userHandler.DeleteUser)
 		}
 
 	}
