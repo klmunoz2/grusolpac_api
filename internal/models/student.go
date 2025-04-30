@@ -4,8 +4,8 @@ import "gorm.io/gorm"
 
 type Student struct {
 	gorm.Model
-	FirstName   string `gorm:"type:varchar(100);not null"`
-	LastName    string `gorm:"type:varchar(100);not null"`
-	Email       string `gorm:"type:varchar(255);not null;uniqueIndex"`
+	UserID      *uint `gorm:"uniqueIndex"`
+	User        *User `gorm:"foreignKey:UserID"`
 	Enrollments []Enrollment
+	StudentCode string `gorm:"type:varchar(50);uniqueIndex"`
 }

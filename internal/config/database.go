@@ -1,9 +1,11 @@
 package config
 
 import (
+	"fmt"
 	"log"
 	"time"
 
+	"github.com/klmunoz2/grusolpac_api/internal/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -55,5 +57,50 @@ func InitDB(config *Config) *gorm.DB {
 
 	log.Println("Conexión a la base de datos establecida exitosamente")
 	return db
-	
+
+}
+
+func AutoMigrate(db *gorm.DB) error {
+	// Crear extensión pgcrypto si no existe
+	if err := db.Exec("CREATE EXTENSION IF NOT EXISTS \"pgcrypto\"").Error; err != nil {
+		return fmt.Errorf("failed to create pgcrypto extension: %w", err)
+	}
+
+	// Migrar modelos en el orden correcto
+	modelsToMigrate := []interface{}{
+		&models.Role{},
+		&models.User{},
+		&models.Student{},
+		&models.Course{},
+		&models.Module{},
+		&models.Topic{},
+		&models.Question{},
+		&models.Answer{},
+		&models.CourseEvaluation{},
+		&models.EvaluationQuestion{},
+		&models.Enrollment{},
+		&models.Certificate{},
+	}
+
+	// Desactivar restricciones temporales para evitar problemas con el orden
+	if err := db.Exec("SET CONSTRAINTS ALL DEFERRED").Error; err != nil {
+		return fmt.Errorf("failed to defer constraints: %w", err)
+	}
+
+	// Ejecutar migración en transacción
+	err := db.Transaction(func(tx *gorm.DB) error {
+		for _, model := range modelsToMigrate {
+			if err := tx.AutoMigrate(model); err != nil {
+				return fmt.Errorf("failed to migrate %T: %w", model, err)
+			}
+		}
+		return nil
+	})
+
+	if err != nil {
+		return fmt.Errorf("database migration failed: %w", err)
+	}
+
+	log.Println("✅ Migración de base de datos completada exitosamente")
+	return nil
 }

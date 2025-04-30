@@ -32,7 +32,6 @@ func main() {
 	log.Println("Cargando configuración...")
 	cfg := config.LoadConfig()
 
-	
 	// Configurar modo de Gin
 	gin.SetMode(cfg.Server.Mode)
 	log.Printf("Modo Gin establecido a: %s", cfg.Server.Mode)
@@ -45,6 +44,11 @@ func main() {
 		log.Fatalf("Error al obtener la conexión SQL subyacente: %v", err)
 	}
 	defer sqlDB.Close()
+
+	log.Println("Inicializando migraciones a la base de datos...")
+	if err := config.AutoMigrate(db); err != nil {
+		log.Fatalf("❌ Database migration failed: %v", err)
+	}
 
 	// Inicializar el router de Gin
 	log.Println("Inicializando router...")

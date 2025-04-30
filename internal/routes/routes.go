@@ -21,7 +21,7 @@ func SetupRoutes(router *gin.Engine) {
 	// Grupo de rutas API v1
 	v1 := router.Group("/api/v1")
 	{
-		// Rutas de usuarios (ejemplo)
+		
 		userRoutes := v1.Group("/users")
 		{
 			userRoutes.GET("/", func(c *gin.Context) {
@@ -44,7 +44,6 @@ func SetupRoutes(router *gin.Engine) {
 			})
 		}
 
-		// Puedes agregar más grupos de rutas aquí
 	}
 
 	// Ruta para health check
